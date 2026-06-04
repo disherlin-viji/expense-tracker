@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="category-wrapper">
+    <div class="category-container">
+        <h1>&#128181; Category Overview</h1>
+        <p>Track where your money goes</p>
+
+        <!-- INCOME -->
+        <div class="category-box income-box">
+            <h2>Income</h2>
+            {% for i in income_data %}
+                <div class="category-item">
+                    <span>{{ i.category }}</span>
+                    <span>&#8377; {{ i.total }}</span>
+                </div>
+            {% empty %}
+                <p>No income data</p>
+            {% endfor %}
+         </div>
+
+         <!-- EXPENSE -->
+        <div class="category-box expense-box">
+            <h2>Expense</h2>
+            {% for e in expense_data %}
+                <div class="category-item">
+                    <span>{{ e.category }}</span>
+                    <span>&#8377; {{ e.total }}</span>
+                </div>
+            {% empty %}
+                <p>No expense data</p>
+            {% endfor %}
+          </div>
+
+        <!-- MONTHLY -->
+        <div class="category-box monthly-box">
+            <h2>Monthly Breakdown</h2>
+            {% for i in monthly_income %}
+                {% for e in monthly_expense %}
+                    {% if i.month == e.month%}
+                        <div class="category-item">
+                            <span>{{ i.month | date:'F Y' }}</span>
+                            <span class="category-monthly-income">Income - &#8377;{{ i.total }}</span>|<span class="category-monthly-expense">Expense - &#8377;{{ e.total }}</span>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

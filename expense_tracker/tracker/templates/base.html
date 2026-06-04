@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/logo2.png' %}">
+</head>
+<body>
+
+<!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Logo">
+            <span class="logo-name">Expense Tracker</span>
+        </div>
+
+        <ul class="nav-links">
+            <li>
+                <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
+                <a href="{% url 'transactions_page' %}" class="{% if request.resolver_match.url_name == 'transactions_page' %}active{% endif %}">Transactions</a>
+                <a href="{% url 'categories' %}" class="{% if request.resolver_match.url_name == 'categories' %}active{% endif %}">Categories</a>
+            </li>
+        </ul>
+
+        <div class="nav-right">
+                <span>Welcome {{ request.user.username }}&#128075;</span>
+        </div>
+
+        <details class="profile-menu">
+            <summary class="menu-btn">
+                &#9776;
+            </summary>
+
+            <div class="dropdown-menu">
+                <a href="{% url 'change_username' %}">Change Username</a>
+                <a href="{% url 'change_password' %}">Change Password</a>
+                <a href="{% url 'delete_account' %}">Delete Account</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            </div>
+        </details>
+        
+    </nav>
+
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

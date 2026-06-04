@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup | Expense Tracker</title>
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/logo2.png' %}">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+
+            <h2>Create Account</h2>
+            <p>Start tracking your income and expenses</p>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="message">
+                        {{ message }}
+                    </p>
+                {% endfor %}
+            {% endif %}
+
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Choose Username" value="{{username}}" required>
+
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Enter Email" value="{{email}}" required>
+
+                <label>Password</label>
+                <input type="password" name="password1" placeholder="Enter Password" required>
+
+                <label>Confirm Password</label>
+                <input type="password" name="password2" placeholder="Confirm Password" required>
+
+                <button type="submit">Signup</button>
+            </form>
+
+            <p class="switch">Already have an account?
+                <a href="{% url 'login' %}">Login</a>
+            </p>
+        </div>
+    </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Expense Tracker</title>
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/logo2.png' %}">
+</head>
+<body>
+    
+<div class="auth-container">
+    <div class="auth-card">
+        <h2>Welcome Back &#128075;</h2>
+        <p>Login to continue managing your expense</p>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p class="message">
+                    {{ message }}
+                </p>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Enter Username" required>
+
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter Password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p class="switch">
+            Don't have an account? 
+            <a href="{% url 'signup' %}">Signup</a> 
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

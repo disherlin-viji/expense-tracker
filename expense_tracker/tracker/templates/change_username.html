@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<button class="back-btn" onclick="history.back()">&#8592; Back</button>
+
+<div class="settings-container">
+    <h2>Change Username</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <p class="message">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="username" placeholder="Enter new username" required>
+
+        <button type="submit">Update Username</button>
+    </form>
+</div>
+{% endblock%}

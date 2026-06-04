@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Transaction</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/logo2.png' %}">
+</head>
+<body class="edit-page">
+    <button class="back-btn" onclick="history.back()">&#8592; Back</button>
+
+    <div class="form-container edit-container">
+        <div class="form-header">
+            <div class="form-icon edit-icon">&#x270E;</div>
+            <div class="form-text">
+                <h2>Edit Transaction</h2>
+                <p>Update your transaction details</p>
+            </div>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+    
+            <!-- ROW 1 -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Type</label>
+                    <select name="transaction_type"> 
+                        {% for value, label in type_choices %}
+                            <option value="{{ value }}"
+                            {% if transaction.transaction_type == value %}
+                                selected
+                            {% endif %}>{{ label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Amount</label>
+                <input type="number" name="amount" value="{{ transaction.amount }}" required>
+                </div>
+            </div>
+
+            <!-- ROW 2 -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Category</label>
+                    <select name="category">
+                        {% for value,label in category_choices %}
+                            <option value="{{ value }}"
+                            {% if transaction.category == value %}
+                                selected
+                            {% endif %}>{{ label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <select name="payment_method">
+                        {% for value,label in payment_choices %}
+                            <option value="{{ value }}"
+                            {% if transaction.payment_type == value %}
+                                selected
+                            {% endif%}>{{ label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <!-- DATE -->
+             <div class="form-group">
+                <label>Date</label>
+                    <input type="date" name="date" value="{{ transaction.date|date:'Y-m-d' }}" required>
+            </div>
+
+            <!-- DESCRIPTION -->
+             <div class="form-group">
+                <label>Description</label>
+                <textarea name="description">{{ transaction.description }}</textarea>
+            </div>
+
+            <!-- BUTTON -->
+            <button type="submit" class="update-btn">Update Transaction</button>
+        </form>
+    </div>
+</body>
+</html>
