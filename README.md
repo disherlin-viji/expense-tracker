@@ -1,24 +1,24 @@
 📌 Expense Tracker (Django Project)
 
-🧾 About the Project
+🧾 About the Project -
 This is a simple Expense Tracker web application built using Django.
 It helps users record, manage, and track their daily expenses in an organized way.
 The main goal of this project is to practice Django basics like models, views, templates, and database handling.
 
-🚀 Features
-Add new expenses
-View all transactions
-Edit existing expenses
-Delete transactions
-Simple and clean UI
-Organized data storage using Django database
+🚀 Features -
+-- Add new expenses
+-- View all transactions
+-- Edit existing expenses
+-- Delete transactions
+-- Simple and clean UI
+-- Organized data storage using Django database
 
-🛠️ Technologies Used
-Python
-Django
-HTML
-CSS
-SQLite (default database)
+🛠️ Technologies Used -
+-- Python
+-- Django
+-- HTML
+-- CSS
+-- SQLite (default database)
 
 📁 Project Structure
 main-project/
@@ -28,7 +28,7 @@ main-project/
 ├── db.sqlite3
 └── venv/ (not included in GitHub)
 
-⚙️ How to Run This Project
+⚙️ How to Run This Project -
 1. Clone the repository
 git clone https://github.com/your-username/expense-tracker.git
 2. Go to project folder
