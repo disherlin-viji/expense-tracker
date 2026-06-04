@@ -46,10 +46,10 @@ python manage.py runserver
 8. Open in browser
 http://127.0.0.1:8000/
 
-📌 Note
+📌 Note:
 The virtual environment (venv) is not included in this repository.
 This project is made for learning purposes.
 
--Author
+Author -
 Disherlin Viji
-(Feel free to connect and suggest improvements
+(Feel free to connect and suggest improvements)
