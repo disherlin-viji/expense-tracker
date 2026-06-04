@@ -690,16 +690,22 @@ body{
     background: #ce9806;
 }
 
+
 /* MOBILE RESPONSIVENESS */
 @media (max-width: 768px){
-    .summary-cards{
-        flex-direction: column;
+    body{
+        padding: 10px;
     }
-    .navbar{
-        flex-direction: column;
-        gap: 10px;
+    .container{
+        width: 100%;
+        padding: 10px;
     }
-    .settings-container,.form-container{
-        width: 90%;
+    table, .box{
+        width: 100%;
+        overflow-x: auto;
+    }
+    input, button{
+        width: 100%;
+        margin-bottom: 10px;
     }
 }

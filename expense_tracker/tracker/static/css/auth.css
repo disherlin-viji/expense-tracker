@@ -89,3 +89,20 @@ body{
     font-size: 14px;
 }
 
+@media (max-width: 768px){
+    body{
+        padding: 10px;
+    }
+    .container{
+        width: 100%;
+        padding: 10px;
+    }
+    table, .box{
+        width: 100%;
+        overflow-x: auto;
+    }
+    input, button{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
